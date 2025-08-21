@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sphesihle Shezi - Developer Portfolio</title>
+    <title>Interactive Skills - Sphesihle Shezi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,36 +15,27 @@
             --accent: #FF6B6B;
             --dark: #1A1A2E;
             --light: #F8F9FA;
-        }
+        } 
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: cornflowerblue;
             min-height: 100vh;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         .hero-section {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            color: cornflowerblue;
+            color: mediumpurple;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
         }
-
-            .hero-section::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-                background-size: cover;
-            }
 
         .hero-content {
             position: relative;
@@ -56,7 +48,27 @@
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientMove 5s ease infinite;
+            background-size: 200% 200%;
+        }
+
+       
+        {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+
         }
 
         .hero-subtitle {
@@ -65,11 +77,129 @@
             opacity: 0.9;
         }
 
-        .hero-description {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            line-height: 1.6;
+        .skills-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            backdrop-filter: blur(10px);
+            border: 1px solid #000;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .skill-card::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                z-index: -1;
+                background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+                background-size: 400% 400%;
+                border-radius: 16px;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                animation: gradientMove 5s ease infinite;
+            }
+
+            .skill-card:hover::before {
+                opacity: 1;
+            }
+
+            .skill-card:hover {
+                transform: translateY(-10px) scale(1.03);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .skill-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: all 0.4s ease;
+        }
+
+        .skill-card:hover .skill-name {
+            color: var(--secondary);
+        }
+
+        .skill-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.4s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .skill-card:hover .skill-desc {
+            max-height: 100px;
+            opacity: 1;
+        }
+
+        .skill-level {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 15px;
+            overflow: hidden;
+            width: 80%;
+        }
+
+        .skill-level-bar {
+            height: 100%;
+            border-radius: 3px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .skill-card:hover .skill-level-bar {
+            width: var(--skill-level);
         }
 
         .btn-resume {
@@ -79,7 +209,7 @@
             padding: 15px 40px;
             font-size: 1.2rem;
             font-weight: 600;
-            color: rebeccapurple;
+            color: white;
             text-transform: uppercase;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -91,137 +221,217 @@
             .btn-resume:hover {
                 transform: translateY(-3px);
                 box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-                color: cornflowerblue;
+                color: white;
             }
 
-        .skills-section {
-            background: black;
-            border-radius: 15px;
-            padding: 3rem;
-            margin: 2rem auto;
-            max-width: 900px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-
-        .skill-badge {
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: black;
-            padding: 8px 20px;
-            border-radius: 20px;
-            margin: 5px;
-            display: inline-block;
-            font-weight: 500;
-        }
-            .skill-badge:hover{
-                 transform: translateY(-3px);
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-                color: cornflowerblue;
-            }
-
-        .download-section {
-            text-align: center;
-            padding: 3rem;
-            color: cornflowerblue;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: none;
         }
 
-        .download-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
+            .back-to-top.show {
+                opacity: 1;
+                visibility: visible;
+                bottom: 30px;
+            }
+
+            .back-to-top:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+                background: linear-gradient(45deg, var(--secondary), var(--primary));
+            }
+
+
+        .content-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .instructions {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            text-align: left;
+          /*   .content-section:hover {
+                transform: translateY(-10px) scale(1.03);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+                background: rgba(255, 255, 255, 0.1);
+            }
+ */
+        .content-placeholder {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-            .instructions h3 {
-                color: var(--accent);
-                margin-bottom: 15px;
-            }
-
-            .instructions ol {
-                text-align: left;
-                max-width: 700px;
-                margin: 0 auto;
-            }
-
-            .instructions li {
-                margin-bottom: 10px;
-            }
-
-       
     </style>
 </head>
 <body>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <div class="hero-section">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Sphesihle Shezi</h1>
                 <p class="hero-subtitle">Full Stack Developer & Creative Problem Solver</p>
-                <p class="hero-description">
-                    I'm a passionate developer with expertise in creating dynamic web applications using ASP.NET, C#, JavaScript, and modern web technologies.
-                    With a strong foundation in both front-end and back-end development, I specialize in building responsive, user-friendly applications
-                    that solve real-world problems. My approach combines technical expertise with creative thinking to deliver exceptional digital experiences.
-                </p>
-             
+
+                <div class="mt-5">
+                    <a href="#skills" class="btn-resume">
+                        <i class="fas fa-code me-2"></i>View Skills
+                    </a>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <div class="content-section" id="about"> 
+        <div class="content-placeholder">
+            <h2>About Me</h2>
+            <p>
+                I am a final-year IT Software Development student passionate about building dynamic,
+                user-centric web applications. <br />My expertise lies in both front-end and back-end development, with a strong skill set in JavaScript, C#, and Python.
+            </p>
+            
+
+        </div>
+
+        <div class="content-placeholder">
+            <h2>My Projects</h2>
+            <p>Throughout my career, I've worked on various projects ranging from e-commerce platforms to interactive web applications. Each project has helped me refine my skills and approach to problem-solving.</p>
         </div>
     </div>
 
     <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="text-center mb-4">Technical Skills</h2>
-            <div class="text-center">
-                <span class="skill-badge">ASP.NET MVC</span>
-                <span class="skill-badge">C#</span>
-                <span class="skill-badge">JavaScript</span>
-                <span class="skill-badge">HTML5 & CSS3</span>
-                <span class="skill-badge">Bootstrap</span>
-                <span class="skill-badge">jQuery</span>
-                <span class="skill-badge">SQL Server</span>
-                <span class="skill-badge">Git & GitHub</span>
-                <span class="skill-badge">RESTful APIs</span>
-                <span class="skill-badge">Entity Framework</span>
-                <span class="skill-badge">Responsive Design</span>
-                <span class="skill-badge">UI/UX Principles</span>
-            </div>
-
-            <div class="row mt-5">
-                <div class="col-md-6">
-                    <h4><i class="fas fa-laptop-code me-2"></i>Front-end Development</h4>
-                    <p>Creating responsive and interactive user interfaces with modern JavaScript frameworks, HTML5, and CSS3.</p>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card" style="--skill-level: 90%;">
+                    <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+                    <h3 class="skill-name">ASP.NET MVC</h3>
+                    <p class="skill-desc">Building robust server-side applications with C# and the .NET framework</p>
+                    <div class="skill-level">
+                        <div class="skill-level-bar" style="background: linear-gradient(45deg, var(--primary), var(--secondary));"></div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h4><i class="fas fa-server me-2"></i>Back-end Development</h4>
-                    <p>Building robust server-side applications using ASP.NET, C#, and SQL Server with secure authentication systems.</p>
+
+                <div class="skill-card" style="--skill-level: 85%;">
+                    <div class="skill-icon"><i class="fab fa-js-square"></i></div>
+                    <h3 class="skill-name">JavaScript</h3>
+                    <p class="skill-desc">Creating interactive and dynamic front-end experiences</p>
+                    <div class="skill-level">
+                        <div class="skill-level-bar" style="background: linear-gradient(45deg, var(--secondary), var(--accent));"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--skill-level: 95%;">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <h3 class="skill-name">HTML5 & CSS3</h3>
+                    <p class="skill-desc">Crafting responsive and accessible web interfaces</p>
+                    <div class="skill-level">
+                        <div class="skill-level-bar" style="background: linear-gradient(45deg, var(--accent), var(--primary));"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--skill-level: 80%;">
+                    <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
+                    <h3 class="skill-name">Bootstrap</h3>
+                    <p class="skill-desc">Developing responsive layouts with modern CSS frameworks</p>
+                    <div class="skill-level">
+                        <div class="skill-level-bar" style="background: linear-gradient(45deg, var(--primary), var(--accent));"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--skill-level: 75%;">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="skill-name">SQL Server</h3>
+                    <p class="skill-desc">Designing and optimizing database structures and queries</p>
+                    <div class="skill-level">
+                        <div class="skill-level-bar" style="background: linear-gradient(45deg, var(--secondary), var(--primary));"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card" style="--skill-level: 70%;">
+                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                    <h3 class="skill-name">Git & GitHub</h3>
+                    <p class="skill-desc">Version control and collaborative development workflows</p>
+                    <div class="skill-level">
+                        <div class="skill-level-bar" style="background: linear-gradient(45deg, var(--accent), var(--secondary));"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="download" class="download-section">
-        <div class="container">
-            <div class="download-icon">
-                <i class="fas fa-file-pdf"></i>
-            </div>
-            <h2>Download My Resume</h2>
-            <p class="mb-4">Get a complete overview of my experience, education, and skills</p>
+    <div class="content-section">
+        <div class="content-placeholder">
+            @* <h2> Education/Experience</h2>
+            </div> *@
 
-            <a href="Sphesihle_Shezi_CV.pdf" download class="btn-resume">
-                <i class="fas fa-download me-2"></i>Download CV (PDF)
-            </a>
+        <div class="content-placeholder">
+            <h2>Contact Me</h2>
+            <p>If you'd like to discuss a project or opportunity, feel free to reach out. I'm always interested in new challenges and collaborations.<br />
+                  At  🔗 LinkedIn: http://www.linkedin.com/in/sphesihleshezi1017| <br /> 💻 GitHub: https://github.com/sphesihle1017
+                   <br /> Or Email me at  ✉️ sphesihlesbani@gmail.com
+                    
 
-         </div>
-    </section>
+            
+            </p>
+        </div>
+    </div>
 
     
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Back to Top Button functionality
+        const backToTopButton = document.getElementById('backToTop');
+
+        // Show button when user scrolls down
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate skill bars on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillCards = document.querySelectorAll('.skill-card');
+
+            // Add hover effect delay for a more dynamic feel
+            skillCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.05}s`;
+            });
+        });
+    </script>
 </body>
 </html>
