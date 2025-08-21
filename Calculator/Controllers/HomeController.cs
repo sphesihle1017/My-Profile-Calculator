@@ -1,17 +1,33 @@
-using System.Diagnostics;
 using Calculator.Models;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace Calculator.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ILogger<HomeController> logger)
+        // Constructor: Inject the IWebHostEnvironment service
+        public HomeController(IWebHostEnvironment webHostEnvironment)
         {
-            _logger = logger;
+            _webHostEnvironment = webHostEnvironment;
         }
+        public IActionResult DownloadCV()
+        {
+            string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "Downloads", "Sphe_Shezi_IT_CV.pdf");
+
+            string contentType = "application/pdf";
+
+            string downloadName = "SphesihleShezi_CV.pdf";
+
+            return PhysicalFile(filePath, contentType, downloadName);
+        }
+
+        
+        
 
         public IActionResult Index()
         {
@@ -28,5 +44,8 @@ namespace Calculator.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        
     }
 }

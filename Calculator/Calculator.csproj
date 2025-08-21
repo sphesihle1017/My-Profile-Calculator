@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="AppData\" />
+    <Folder Include="wwwroot\Downloads\" />
+  </ItemGroup>
+
 </Project>
